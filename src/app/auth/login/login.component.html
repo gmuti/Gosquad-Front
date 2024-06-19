@@ -1,0 +1,70 @@
+<!-- src/app/auth/login/login.component.html -->
+<div class="contt">
+  <div class="illustrationimage">
+    <img src="assets/img/login-page.webp" alt="Illustration" />
+  </div>
+  <div class="formContainer">
+    <img
+      src="assets/img/gosquad-logo.png"
+      alt="gosquad Logo"
+      class="gosquad-logo"
+    />
+    <h2>Connectez-vous pour en voir plus</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <label>
+        Email :
+        <input type="email" formControlName="email" />
+        <div
+          *ngIf="
+            loginForm.get('email')?.invalid &&
+            (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)
+          "
+        >
+          <div *ngIf="loginForm.get('email')?.errors?.['required']">
+            L'email est requis.
+          </div>
+          <div *ngIf="loginForm.get('email')?.errors?.['email']">
+            Adresse email invalide.
+          </div>
+        </div>
+      </label>
+      <label>
+        Mot de passe :
+        <input type="password" formControlName="password" />
+        <div
+          *ngIf="
+            loginForm.get('password')?.invalid &&
+            (loginForm.get('password')?.dirty ||
+              loginForm.get('password')?.touched)
+          "
+        >
+          <div *ngIf="loginForm.get('password')?.errors?.['required']">
+            Le mot de passe est requis.
+          </div>
+          <div *ngIf="loginForm.get('password')?.errors?.['minlength']">
+            Le mot de passe doit comporter au moins 6 caractères.
+          </div>
+        </div>
+      </label>
+      <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+      <button type="submit" [disabled]="loginForm.invalid">Connexion</button>
+    </form>
+    <div class="or-separator">
+      <hr />
+      <span>OU</span>
+      <hr />
+    </div>
+    <button class="google-login" (click)="loginWithGoogle()">
+      <img
+        src="assets/img/google-logo.png"
+        alt="Google Logo"
+        class="google-logo"
+      />
+      Connexion avec Google
+    </button>
+    <div class="additional-options">
+      <button (click)="navigateToRegister()">S'inscrire</button>
+      <p (click)="navigateToForgotPassword()">Mot de passe oublié</p>
+    </div>
+  </div>
+</div>

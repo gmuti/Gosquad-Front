@@ -1,0 +1,27 @@
+<!-- src/app/auth/register/register.component.html -->
+<div class="contt">
+  <div class="formContainer">
+    <img
+      src="assets/img/gosquad-logo.png"
+      alt="gosquad Logo"
+      class="gosquad-logo"
+    />
+    <h2>S'inscrire</h2>
+    <form (ngSubmit)="register()">
+      <label>
+        Email:
+        <input type="email" [(ngModel)]="email" name="email" required />
+      </label>
+      <label>
+        Mot de passe:
+        <input
+          type="password"
+          [(ngModel)]="password"
+          name="password"
+          required
+        />
+      </label>
+      <button type="submit">S'inscrire</button>
+    </form>
+  </div>
+</div>

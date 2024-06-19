@@ -1,0 +1,163 @@
+/* src/app/auth/login/login.component.css */
+
+:root {
+  --primary-color: #fff;
+  --background-color: #000;
+  --error-color: #f00;
+  --border-radius: 4px;
+  --input-padding: 10px;
+  --button-padding: 10px 20px;
+  --font-family: "Arial", sans-serif;
+  --transition: all 0.3s ease;
+}
+
+body {
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+}
+.contt {
+  display: flex;
+  /* justify-content: space-around; */
+  align-items: center;
+  height: 100vh;
+  background: rgb(247, 247, 247);
+  background: radial-gradient(
+    circle,
+    rgba(247, 247, 247, 1) 26%,
+    rgba(217, 209, 239, 1) 94%,
+    rgba(196, 183, 233, 1) 100%,
+    rgba(154, 130, 221, 1) 100%
+  );
+}
+.illustrationimage {
+  margin-left: 18%;
+}
+
+.illustrationimage img {
+  width: 500px;
+  height: 500px;
+}
+
+.formContainer {
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  max-width: 400px;
+  /* margin: 100px auto; */
+  padding: 0 20px 20px;
+  border: 1px solid #9a82dd;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #000000ea;
+}
+
+.formContainer h2 {
+  text-align: center;
+  margin-top: 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 15px;
+}
+
+input {
+  width: 94%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: #fff;
+  box-shadow: 0 0 5px #fff;
+}
+
+.error-message {
+  color: #f00;
+  margin-top: 5px;
+  font-size: 0.9em;
+}
+
+button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  background-color: #9a82dd;
+  color: #000;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #9a82dd;
+  color: #fff;
+}
+
+button[disabled] {
+  cursor: not-allowed;
+}
+
+.additional-options {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.additional-options button,
+.additional-options p {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1em;
+  text-decoration: underline;
+  transition: all 0.3s ease;
+}
+
+.additional-options button:hover,
+.additional-options p:hover {
+  color: #9a82dd;
+}
+
+.google-login {
+  background-color: #fff;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.google-logo {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+
+.gosquad-logo {
+  margin: 0 auto;
+  display: block;
+}
+
+.or-separator {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.or-separator hr {
+  flex: 1;
+  border: none;
+  border-top: 1px solid #fff;
+}
+
+.or-separator span {
+  margin: 0 20px;
+}
