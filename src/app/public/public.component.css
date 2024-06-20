@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.contt {
+  font-family: "Inter", sans-serif;
+  background: #000;
+}
+
+.contt nav,
+.contt nav ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.contt nav {
+  background: #fff;
+}
+
+.contt .gosquad-logo img {
+  width: 180px;
+  height: 80px;
+}
+
+.contt nav ul {
+  list-style: none;
+}
+
+.contt nav ul li a {
+  text-decoration: none;
+  color: #000;
+  font-size: 18px;
+}
+.contt nav ul {
+  display: flex;
+  justify-content: space-evenly;
+}
+.contt nav ul li {
+  margin-left: 20px;
+}
+
+.contt .hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../../assets/img/bandes.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 90vh;
+}
+
+.contt nav ul li button {
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 7px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.contt .hero h1 {
+  font-size: 150px;
+  color: #fff;
+  text-align: center;
+}
+
+.presentation {
+  color: #fff;
+  display: flex;
+  padding: 20px 50px;
+  height: 80vh;
+}
+
+.presImage {
+  width: 100%;
+  height: 90%;
+  border-radius: 20px;
+  margin: auto 10px;
+}
+
+.presImage img {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+}
+
+.presText {
+  margin: auto 40px;
+  padding: 20px;
+}
+
+.presText ul {
+  display: flex;
+  justify-content: space-around;
+  margin: 40px auto 20px;
+  padding: 0 50px;
+  width: 70%;
+}
+
+.presText h2 {
+  font-size: 60px;
+  text-align: center;
+}
+
+.presText ul li {
+  list-style: none;
+  font-size: 25px;
+  background-color: #ffffff34;
+  padding: 7px 15px;
+  border-radius: 10px;
+  border: 1px solid #ffffff2f;
+}
+
+.presText p {
+  font-size: 25px;
+  text-align: center;
+  margin: 10px 50px;
+}

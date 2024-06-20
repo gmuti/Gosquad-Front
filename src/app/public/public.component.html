@@ -1,5 +1,35 @@
 <!-- src/app/public/public.component.html -->
-<div>
-  <h1>Public Page</h1>
-  <button (click)="navigateToAuth()">Connexion</button>
+<div class="contt">
+  <nav>
+    <a class="gosquad-logo" routerLink="/public"
+      ><img src="assets/img/gosquad-logo.png" alt="Illustration"
+    /></a>
+    <ul>
+      <li><a href="">Centre d'aide</a></li>
+      <li><button (click)="navigateToAuth()">Se connecter</button></li>
+    </ul>
+  </nav>
+  <div class="hero">
+    <h1>Creer votre groupe de voyage</h1>
+  </div>
+  <div class="presentation">
+    <div class="presImage">
+      <img src="assets/img/amis.webp" alt="Amis image" />
+    </div>
+    <div class="presText">
+      <h2>Organisez vos voyages</h2>
+      <ul>
+        <li>Entre amis</li>
+        <li>En famille</li>
+        <li>En couple</li>
+      </ul>
+      <p>
+        Nous avons tout ce qu'il vous faut pour planifier l'aventure parfaite
+        avec ceux qui vous sont chers. Découvrez nos conseils, suggestions
+        d'itinéraires, et astuces pour des moments inoubliables. Peu importe la
+        composition de votre groupe, nous sommes là pour vous aider à créer des
+        souvenirs qui dureront toute une vie.
+      </p>
+    </div>
+  </div>
 </div>
