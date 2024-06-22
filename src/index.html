@@ -1,13 +1,18 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>GosquadFront</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body>
-  <app-root></app-root>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <title>GosquadFront</title>
+    <!-- Ajouter les scripts de MapTiler -->
+    <script src="https://api.maptiler.com/maps/voyager/style.json?key={{ mapTilerApiKey }}"></script>
+    <script src="https://api.maptiler.com/maps/streets/style.json?key={{ mapTilerApiKey }}"></script>
+    <!-- Ajouter le script ngx-maptiler -->
+    <script src="https://unpkg.com/ngx-maptiler"></script>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  </head>
+  <body>
+    <app-root></app-root>
+  </body>
 </html>

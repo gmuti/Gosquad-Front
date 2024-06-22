@@ -1,0 +1,25 @@
+.map-wrap {
+  position: relative;
+  width: 100%;
+  height: calc(
+    100vh - 77px
+  ); /* calculate height of the screen minus the heading */
+}
+
+.map {
+  width: 80%;
+  height: 80%;
+  margin: 0 auto;
+  border-radius: 20px;
+}
+
+.custom-popup {
+  background-color: #7b228d; /* Couleur de fond de votre choix */
+  border-radius: 8px; /* Bordure arrondie */
+  padding: 10px; /* Espacement intérieur */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre douce */
+}
+
+.tt {
+  color: black;
+}

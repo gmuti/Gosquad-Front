@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { TimelineComponent } from './timeline/timeline.component';
+import { RouterModule, Router } from '@angular/router';
+import { MapComponent } from './map/map.component';
 @Component({
   selector: 'app-public',
   standalone: true,
-  imports: [],
+  imports: [TimelineComponent, MapComponent],
   templateUrl: './public.component.html',
   styleUrl: './public.component.css',
 })
