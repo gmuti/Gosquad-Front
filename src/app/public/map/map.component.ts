@@ -5,30 +5,30 @@ import {
   AfterViewInit,
   OnDestroy,
 } from '@angular/core';
-import { Map, Marker, Popup, MapStyle, config } from '@maptiler/sdk';
+import { CommonModule } from '@angular/common';
+import { Map, Popup, MapStyle, config } from '@maptiler/sdk';
 import { environment } from '../../../firebase-config';
-
-import '@maptiler/sdk/dist/maptiler-sdk.css';
 
 @Component({
   selector: 'app-map',
-  standalone: true,
+  standalone: true, // Déclarez le composant comme standalone
+  imports: [CommonModule], // Importez CommonModule
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.css'],
 })
 export class MapComponent implements AfterViewInit, OnDestroy {
   @ViewChild('map', { static: false }) mapContainer!: ElementRef<HTMLElement>;
   private map: Map | undefined;
-  private marker: Marker | undefined;
   private popup: Popup | undefined;
 
   ngAfterViewInit() {
     if (typeof window !== 'undefined') {
-      config.apiKey = environment.mapTilerApiKey;
+      config.apiKey = environment.mapTilerApiKey; // Utilisation de votre clé API
 
-      const nantesCoordinates = { lat: 47.2184, lng: -1.5536 };
+      const nantesCoordinates = { lat: 47.2184, lng: -1.5536 }; // Coordonnées de Nantes
       const initialState = { ...nantesCoordinates, zoom: 14 };
 
+      // Initialisation de la carte MapTiler
       this.map = new Map({
         container: this.mapContainer.nativeElement,
         style: MapStyle.STREETS,
@@ -36,33 +36,22 @@ export class MapComponent implements AfterViewInit, OnDestroy {
         zoom: initialState.zoom,
       });
 
-      // Création du marqueur à la position de Nantes
-      this.marker = new Marker({
-        color: '#FF5733', // Couleur personnalisée du marqueur
-        draggable: true, // Marqueur draggable
-      })
-        .setLngLat([nantesCoordinates.lng, nantesCoordinates.lat])
-        .addTo(this.map); // Ajout du marqueur à la carte
-
-      // Création et configuration de la popup
+      // Création et ajout d'une popup à la carte
       this.popup = new Popup({
-        closeButton: true, // Bouton de fermeture
-        closeOnClick: true, // Fermeture au clic sur la carte
+        closeOnClick: true, // Fermer la popup lorsqu'on clique sur la carte
         maxWidth: '300px', // Largeur maximale de la popup
         className: 'custom-popup', // Classe CSS personnalisée pour la popup
       })
-        .setHTML('<h1>Hello World!</h1>') // Contenu HTML de la popup
-        .setLngLat([nantesCoordinates.lng, nantesCoordinates.lat]); // Position de la popup
-
-      // Associer la popup au marqueur
-      this.marker.setPopup(this.popup);
-
-      // Ajouter le marqueur à la carte
-      this.marker.addTo(this.map);
+        .setLngLat([nantesCoordinates.lng, nantesCoordinates.lat])
+        .setHTML(
+          '<h1>Visite!</h1><p class="tt">44 Rue des Dervallières 44000 Nantes</p>'
+        )
+        .addTo(this.map);
     }
   }
 
   ngOnDestroy() {
+    // Nettoyage de la carte à la destruction du composant
     this.map?.remove();
   }
 }

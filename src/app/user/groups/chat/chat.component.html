@@ -1,0 +1,62 @@
+<h2>{{ selectedGroup?.name }}</h2>
+
+<!-- Container for messages -->
+<div #messagesContainer class="messages-container">
+  <div
+    *ngFor="let message of messages"
+    [ngClass]="{
+      'message-right': message.senderId === currentUser,
+      'message-left': message.senderId !== currentUser
+    }"
+    class="message"
+  >
+    <!-- Photo de l'expéditeur -->
+    <img
+      *ngIf="message.senderPhotoUrl"
+      [src]="message.senderPhotoUrl"
+      class="message-photo"
+    />
+
+    <!-- Contenu du message -->
+    <div class="message-content-wrapper">
+      <p class="sender">
+        {{ getUserDisplayName(message.senderId) }}
+      </p>
+      <p class="message-content" [innerHTML]="message.message | safeHtml"></p>
+      <!-- Image attachée au message -->
+      <img
+        *ngIf="message.imageUrl"
+        [src]="message.imageUrl"
+        class="message-image"
+      />
+    </div>
+  </div>
+</div>
+
+<!-- Message input -->
+<div class="input-container">
+  <textarea
+    [(ngModel)]="newMessage"
+    placeholder="Tapez votre message..."
+    class="message-input"
+  ></textarea>
+
+  <!-- Input for image -->
+  <!-- Wrapper for custom file input -->
+  <div class="file-input-wrapper">
+    <input
+      type="file"
+      (change)="onFileSelected($event)"
+      accept="image/*"
+      id="file-input"
+      class="file-input"
+    />
+    <label for="file-input" class="file-input-button">
+      <i class="fa-solid fa-paperclip"></i>
+    </label>
+  </div>
+
+  <button (click)="sendMessage()" class="send-button">
+    <i class="fa-solid fa-paper-plane"></i>
+  </button>
+</div>

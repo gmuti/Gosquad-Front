@@ -1,0 +1,125 @@
+<div class="recap-budget">
+  <div class="recap">
+    <div class="left">
+      <div class="haut">
+        <h3>BUDGET TOTAL</h3>
+        <h2>8354<span>$</span></h2>
+        <div class="bas">
+          <button class="add-budget">Ajouter un budget</button>
+        </div>
+      </div>
+    </div>
+    <div class="middle">
+      <p-chart type="bar" [data]="data" [options]="options"></p-chart>
+    </div>
+    <div class="right">
+      <div
+        class="item_category"
+        *ngFor="let item of Category"
+        [ngStyle]="{
+          'background-image':
+            'linear-gradient(to bottom, ' +
+            item.color1 +
+            ', ' +
+            item.color2 +
+            ')'
+        }"
+      >
+        <div class="head">
+          <i [class]="item.icon"></i>
+          <h4>{{ item.name }}</h4>
+        </div>
+        <div class="count">
+          <h2>{{ item.value }} <span>$</span></h2>
+          <p>Pourcentage : {{ item.pourcentage }} %</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="recap-bas">
+    <!-- Partie gauche : Dépenses -->
+    <div class="depances">
+      <!-- Titre de la Section -->
+      <div class="section-header">
+        <h3>Dépenses</h3>
+        <button (click)="showForm = !showForm" class="add-expense-button">
+          {{ showForm ? "Annuler" : "Ajouter une Dépense" }}
+        </button>
+      </div>
+
+      <!-- Formulaire d'ajout de dépense -->
+      <div *ngIf="showForm" class="expense-form">
+        <form (ngSubmit)="addExpense()">
+          <div>
+            <label for="type">Type</label>
+            <select
+              id="type"
+              [(ngModel)]="newExpense.type"
+              name="type"
+              required
+            >
+              <option value="logement">Logement</option>
+              <option value="nourriture">Nourriture</option>
+              <option value="transport">Transport</option>
+              <option value="loisir">Loisir</option>
+            </select>
+          </div>
+          <div>
+            <label for="amount">Montant</label>
+            <input
+              id="amount"
+              type="number"
+              [(ngModel)]="newExpense.amount"
+              name="amount"
+              required
+            />
+          </div>
+          <div>
+            <label for="description">Description</label>
+            <input
+              id="description"
+              type="text"
+              [(ngModel)]="newExpense.description"
+              name="description"
+              required
+            />
+          </div>
+          <button type="submit">Ajouter</button>
+        </form>
+      </div>
+
+      <!-- Filtres -->
+      <div class="filters">
+        <button (click)="filterExpenses('all')">Tous</button>
+        <button (click)="filterExpenses('logement')">Logement</button>
+        <button (click)="filterExpenses('nourriture')">Nourriture</button>
+        <button (click)="filterExpenses('transport')">Transport</button>
+        <button (click)="filterExpenses('loisir')">Loisir</button>
+      </div>
+
+      <!-- Tableau des Dépenses -->
+      <table>
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Montant</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let exp of filteredExpenses">
+            <td>{{ exp.type }}</td>
+            <td>{{ exp.amount | currency }}</td>
+            <td>{{ exp.description }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Partie droite -->
+    <div class="right-section">
+      <!-- Contenu de la partie droite -->
+      <p>Contenu pour la partie droite</p>
+    </div>
+  </div>
+</div>

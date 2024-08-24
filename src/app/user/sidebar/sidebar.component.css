@@ -1,0 +1,182 @@
+aside {
+  background-color: #603f26;
+  color: #ffdbb5;
+  box-sizing: border-box;
+  height: 100%;
+  border-radius: 15px;
+  padding-top: 10px;
+  width: 200px;
+  transition: width 0.3s;
+  margin-right: 5px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+aside.collapsed {
+  width: 80px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  flex: 1;
+}
+
+aside .logo {
+  width: 75%;
+  height: auto;
+  margin: 0 auto 5px;
+  display: block;
+}
+
+aside.collapsed .logo {
+  width: 90%;
+  margin-bottom: 30px;
+}
+
+.centre {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+}
+
+.user-photo {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.user-details {
+  text-align: center;
+}
+
+.user-name {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.logout-section {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logout-btn {
+  background-color: #ffdbb5;
+  color: #603f26;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.logout-icon-only {
+  background: none;
+  border: none;
+  color: #603f26;
+  font-size: 24px;
+  cursor: pointer;
+  display: none;
+}
+
+.logout-btn i,
+.logout-icon-only i {
+  margin-right: 5px;
+}
+
+.user-info-collapsed {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.user-info-collapsed .user-photo {
+  width: 60px;
+  height: 60px;
+}
+
+ul li {
+  padding: 15px 30px;
+  font-size: 18px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s;
+  margin: 6px 15px;
+  border-radius: 10px;
+}
+
+ul li.active {
+  background-color: #ffdbb51f;
+  color: #ffdbb5;
+  border: 1px solid #ffdbb533;
+}
+
+ul li i {
+  margin-right: 10px;
+}
+
+aside.collapsed ul li {
+  justify-content: center;
+  margin: 15px 10px;
+}
+
+aside.collapsed ul li i {
+  margin-right: 0;
+}
+
+ul li span {
+  display: inline;
+  cursor: pointer;
+}
+
+aside.collapsed ul li span {
+  display: none;
+}
+
+button.toggle-btn {
+  background-color: #603f26;
+  border-radius: 5px;
+  padding: 5px;
+  border: none;
+  color: #ffdbb5;
+  font-size: 18px;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: -15px;
+  z-index: 10;
+}
+
+ul li:hover,
+aside.collapsed ul li:hover {
+  background-color: #ffdbb5;
+  color: #603f26;
+}
+
+aside.collapsed .logout-btn {
+  display: none;
+}
+
+aside.collapsed .logout-icon-only {
+  display: block;
+}

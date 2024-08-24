@@ -1,0 +1,447 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.groupes {
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.groupes h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#creategroup-btn {
+  width: 300px;
+  height: 220px;
+  border-radius: 15px;
+  border: 3px dashed #603f26;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #603f26;
+  background: none;
+}
+
+#creategroup-btn i {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.groupes ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+  padding: 10px;
+}
+.groupe {
+  height: 300px;
+  border-radius: 15px;
+  overflow: hidden;
+  padding-bottom: 10px;
+}
+
+.groupe p {
+  text-align: center;
+}
+
+.btn-submit {
+  background-color: #ffdbb5;
+  color: #603f26;
+  border: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.popup-content input[type="text"] {
+  background-color: #ffdab940;
+  border: 1px solid #ffdab975;
+  color: #ffdbb5;
+}
+
+.popup-content label {
+  color: #ffdbb5;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.groupe p:nth-child(2) {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.groupe p:nth-child(3) {
+  font-size: 1rem;
+  color: #603f26;
+}
+
+.groupe p:last-child {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #603f26;
+}
+
+.groupe img {
+  width: 95%;
+  height: 70%;
+  object-fit: cover;
+  border-radius: 15px;
+  margin: 5px auto 10px;
+  display: block;
+}
+
+/*  pop up  */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #00000080;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  background-color: #603f26;
+  padding: 5px 20px 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+  position: relative;
+  width: 600px;
+}
+
+.popup-content h2 {
+  text-align: center;
+}
+
+.popup-content img {
+  width: 170px;
+  margin: 0 auto;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.popup-content form {
+  display: flex;
+  flex-direction: column;
+}
+
+form div {
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+/* button {
+  cursor: pointer;
+  padding: 10px 20px;
+  background-color: #603f268c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  border: 1px solid #603f268c;
+} */
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  margin: 5px 20px 20px 20px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  background-color: #603f26;
+  border-radius: 10px;
+  padding: 10px 20px;
+}
+
+nav ul li {
+  margin-left: 10px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.logo img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/**/
+.timeline {
+  margin: 10px 50px;
+}
+.detail-group {
+  display: block;
+}
+.step-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 10px 0;
+  margin: 7px;
+}
+
+.step {
+  width: 300px;
+
+  overflow: hidden;
+}
+
+.step img {
+  width: 150px;
+  height: 130px;
+  object-fit: cover;
+  margin-left: calc(50% - 75px);
+}
+
+.liaison {
+  width: 120px;
+  height: 30px;
+  background-color: #603f26;
+}
+
+.bas {
+  display: flex;
+}
+
+.description h4 {
+  padding: 5px;
+  border-radius: 10px;
+  background-color: #603f26;
+  color: #ffdbb5;
+  text-align: center;
+}
+
+.description p {
+  text-align: center;
+  padding: 10px;
+}
+
+.members li {
+  border: 1px solid #fbdaaa;
+  margin-bottom: 8px;
+  padding: 7px 10px;
+  background-color: #ffe9c896;
+  border-radius: 5px;
+}
+
+.members li button {
+  background-color: #603f26;
+  color: #ffdbb5;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+/* Style pour la div maj-group */
+.maj-group {
+  position: fixed; /* Positionnement fixe pour superposer sur toute la page */
+  top: 50%; /* Centre verticalement */
+  left: 50%; /* Centre horizontalement */
+  transform: translate(-50%, -50%); /* Décalage pour le centrage */
+  background-color: #fff; /* Fond blanc */
+  color: #000; /* Texte noir pour une bonne lisibilité */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Ombre pour mettre en valeur */
+  z-index: 1000; /* Assure qu'il soit au-dessus du reste du contenu */
+  width: 70vw; /* Largeur maximale fixe */
+  max-height: 80vh; /* Hauteur maximale responsive */
+  overflow-y: auto; /* Ajoute un défilement si nécessaire */
+  /* width scroll*/
+  scrollbar-width: none;
+}
+
+/* Style pour le formulaire dans maj-group */
+.maj-group form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Espace entre les éléments du formulaire */
+}
+
+/* Style pour les titres du formulaire */
+.maj-group h1 {
+  color: #603f26; /* Couleur principale pour les titres */
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+/* Style pour les éléments de formulaire */
+.maj-group input[type="text"],
+.maj-group input[type="email"],
+.maj-group input[type="number"],
+.maj-group input[type="date"],
+.maj-group input[type="file"] {
+  border: 1px solid #603f26; /* Bordure violet */
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 15px;
+}
+
+/* Style pour les boutons de formulaire */
+.maj-group .maj-btn {
+  background-color: #603f26; /* Fond violet */
+  color: #ffdbb5; /* Texte blanc */
+  cursor: pointer;
+  font-weight: bold;
+  padding: 8px 10px;
+  transition: background-color 0.3s;
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
+  border-radius: 7px;
+  border: none;
+  font-size: 15px;
+}
+
+.maj-group button:hover {
+  background-color: #603f26;
+}
+
+.maj-group button:active {
+  background-color: #603f26;
+}
+
+.maj-group ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Style pour les éléments supplémentaires comme les titres de sections */
+.maj-group h3 {
+  color: #603f26; /* Couleur principale pour les sous-titres */
+  margin-top: 16px;
+}
+
+/* Style pour les entrées de fichier */
+.maj-group input[type="file"] {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  font-size: 15px;
+  color: #603f26;
+  cursor: pointer;
+}
+
+/* Style pour les boutons de fichier personnalisés */
+.maj-group .file-input-wrapper {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+}
+
+.maj-group .file-input-button {
+  display: inline-block;
+  padding: 8px 10px;
+  border: 1px solid #603f26; /* Bordure violet */
+  border-radius: 5px;
+  background-color: #fff; /* Fond blanc */
+  color: #603f26; /* Texte violet */
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+}
+
+/* Style pour les boutons de fichier personnalisés au survol et au clic */
+.maj-group .file-input-button:hover {
+  background-color: #f0f0f0; /* Fond gris clair au survol */
+}
+
+.maj-group .file-input-button:active {
+  background-color: #e0e0e0; /* Fond gris plus foncé au clic */
+}
+
+/* Style pour le formulaire d'ajout d'utilisateur dans le contexte du groupe */
+.add-user-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px; /* Espacement sous le formulaire */
+  padding: 5px 16px;
+  background-color: #ffdbb5;
+  border-radius: 8px;
+  max-width: 500px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* Style pour le titre du formulaire d'ajout d'utilisateur */
+.add-user-form h2 {
+  color: #603f26; /* Couleur principale pour le titre */
+  text-align: center;
+}
+
+/* Style pour les champs de texte du formulaire */
+.add-user-form input[type="email"] {
+  border: 1px solid #603f26; /* Bordure violet */
+  border-radius: 5px;
+  color: #fff; /* Texte blanc */
+}
+
+/* Style pour les boutons du formulaire d'ajout d'utilisateur */
+.add-user-form button {
+  background-color: #603f26; /* Fond violet */
+  color: #fff; /* Texte blanc */
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+/* Style pour les boutons du formulaire au survol et au clic */
+.add-user-form button:hover {
+  background-color: #603f26; /* Couleur plus foncée au survol */
+}
+
+.add-user-form button:active {
+  background-color: #603f26; /* Couleur encore plus foncée au clic */
+}
+
+/* Style pour le bouton "Ajouter un utilisateur" */
+.update-group-form button.toggle-add-user-form {
+  background-color: #603f26;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+/* Style pour le bouton "Ajouter un utilisateur" au survol et au clic */
+.update-group-form button.toggle-add-user-form:hover {
+  background-color: #603f26; /* Couleur plus foncée au survol */
+}
+
+.update-group-form button.toggle-add-user-form:active {
+  background-color: #603f26; /* Couleur encore plus foncée au clic */
+}

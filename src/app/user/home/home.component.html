@@ -1,0 +1,85 @@
+<div class="home-container">
+  <div class="checklist">
+    <h2>Checklist</h2>
+    <!-- Boutons pour ajouter une catégorie et un élément -->
+    <div class="add-btns">
+      <button (click)="showAddItemForm = true">Ajouter un élément</button>
+      <button (click)="showAddCategoryForm = true">Nouvelle catégorie</button>
+    </div>
+
+    <!-- Formulaire pour ajouter un élément -->
+    <div *ngIf="showAddItemForm">
+      <h3>Ajouter un élément</h3>
+      <input
+        type="text"
+        [(ngModel)]="newChecklistItem"
+        placeholder="Nouvelle tâche"
+      />
+      <select [(ngModel)]="selectedCategory">
+        <option value="" disabled selected>Choisissez une catégorie</option>
+        <option *ngFor="let category of categories" [value]="category">
+          {{ category }}
+        </option>
+      </select>
+      <button (click)="addChecklistItem()">Ajouter</button>
+      <button (click)="showAddItemForm = false">Annuler</button>
+    </div>
+
+    <!-- Formulaire pour ajouter une catégorie -->
+    <div *ngIf="showAddCategoryForm">
+      <h3>Nouvelle catégorie</h3>
+      <input
+        type="text"
+        [(ngModel)]="newCategory"
+        placeholder="Nouvelle catégorie"
+      />
+      <button (click)="addCategory()">Ajouter</button>
+      <button (click)="showAddCategoryForm = false">Annuler</button>
+    </div>
+
+    <div *ngFor="let category of categories">
+      <h3>{{ category }}</h3>
+      <ul>
+        <li *ngFor="let item of getChecklistItemsByCategory()[category]">
+          <input type="checkbox" [(ngModel)]="item.checked" /> {{ item.name }}
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="right">
+    <div class="haut">
+      <div class="destinations">
+        <h2>Destinations</h2>
+        <div class="destination" *ngFor="let destination of destinations">
+          <img src="{{ destination.image }}" alt="" />
+          <div class="right">
+            <h3>{{ destination.name }}</h3>
+            <p>{{ destination.description }}</p>
+            <p>Prix: {{ destination.price | currency }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="activities">
+        <h2>Activités</h2>
+        <div class="activity" *ngFor="let activity of activities">
+          <img [src]="activity.image" alt="{{ activity.name }}" />
+          <div class="bas">
+            <h3>{{ activity.name }}</h3>
+            <p>{{ activity.description }}</p>
+            <p>Prix: {{ activity.price | currency }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="groups">
+      <h2>Mes groupes</h2>
+      <div class="group" *ngFor="let group of groups">
+        <h3>{{ group.name }}</h3>
+        <p>{{ group.description }}</p>
+      </div>
+    </div>
+  </div>
+</div>

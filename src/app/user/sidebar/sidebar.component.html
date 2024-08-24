@@ -1,0 +1,56 @@
+<aside [ngClass]="{ collapsed: isCollapsed }">
+  <!-- Logo -->
+  <img
+    class="logo"
+    src="assets/img/gogolog3.png"
+    alt="Logo"
+    [ngClass]="{ 'collapsed-logo': isCollapsed }"
+  />
+
+  <!-- Section pour afficher les informations de l'utilisateur -->
+  <div class="centre">
+    <div class="user-info" *ngIf="!isCollapsed">
+      <img
+        [src]="userProfile?.photoUrl || 'assets/img/defaultProfilPhoto.png'"
+        alt="User Photo"
+        class="user-photo"
+      />
+      <div class="user-details">
+        <span class="user-name">{{ getDisplayName() }}</span>
+      </div>
+    </div>
+    <div class="user-info-collapsed" *ngIf="isCollapsed">
+      <img
+        [src]="userProfile?.photoUrl || 'assets/img/defaultProfilPhoto.png'"
+        alt="User Photo"
+        class="user-photo"
+      />
+    </div>
+
+    <button class="toggle-btn" (click)="toggleSidebar()">
+      <i class="fa-solid fa-chevron-left" *ngIf="!isCollapsed"></i>
+      <i class="fa-solid fa-chevron-right" *ngIf="isCollapsed"></i>
+    </button>
+
+    <ul>
+      <li
+        *ngFor="let item of menuItems"
+        (click)="navigateTo(item.route)"
+        [ngClass]="{ active: currentRoute === item.route }"
+      >
+        <i [class]="item.icon"></i>
+        <span *ngIf="!isCollapsed">{{ item.title }}</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Bouton de déconnexion -->
+  <div class="logout-section">
+    <button class="logout-btn" (click)="logout()">
+      <i class="fa-solid fa-sign-out-alt"></i> Déconnexion
+    </button>
+    <button class="logout-icon-only" (click)="logout()" *ngIf="isCollapsed">
+      <i class="fa-solid fa-sign-out-alt"></i>
+    </button>
+  </div>
+</aside>

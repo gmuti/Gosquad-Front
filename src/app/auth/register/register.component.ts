@@ -14,13 +14,25 @@ import { CommonModule } from '@angular/common';
 export class RegisterComponent {
   email: string = '';
   password: string = '';
+  displayName: string = '';
 
   constructor(private authService: AuthService, private router: Router) {}
 
   register() {
     this.authService
       .registerWithEmail(this.email, this.password)
-      .then(() => this.router.navigate(['/user']))
-      .catch((error) => console.error('Error registering:', error));
+      .then((userCredential) => {
+        return this.authService.updateUserData(userCredential.user?.uid, {
+          displayName: this.displayName,
+          email: this.email,
+          photoUrl: '',
+        });
+      })
+      .then(() => {
+        this.router.navigate(['/user']);
+      })
+      .catch((error) => {
+        console.error('Error registering:', error);
+      });
   }
 }

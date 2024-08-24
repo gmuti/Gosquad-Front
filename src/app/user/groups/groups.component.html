@@ -1,0 +1,291 @@
+<div class="groupes" *ngIf="!selectedGroup">
+  <h2>Mes groupes</h2>
+  <ul>
+    <button id="creategroup-btn" (click)="toggleCreateGroupForm()">
+      <i class="fa-regular fa-square-plus"></i><br />
+      Créer un Groupe
+    </button>
+    <div
+      *ngIf="showCreateGroupForm"
+      class="popup-overlay"
+      (click)="toggleCreateGroupForm()"
+    >
+      <div class="popup-content" (click)="$event.stopPropagation()">
+        <img src="../../../assets/img/gogolog3.png" alt="" />
+        <form (ngSubmit)="createGroup()">
+          <div class="list-inputs">
+            <label for="groupName">Nom du Groupe</label>
+            <input
+              type="text"
+              [(ngModel)]="groupName"
+              name="groupName"
+              placeholder="Nom du Groupe"
+              required
+            />
+            <label for="destination">Destination</label>
+            <input
+              type="text"
+              [(ngModel)]="destination"
+              name="destination"
+              placeholder="Destination"
+              required
+            />
+          </div>
+          <button class="btn-submit" type="submit">Créer</button>
+        </form>
+      </div>
+    </div>
+    <li
+      class="groupe"
+      *ngFor="let group of groups | async"
+      (click)="selectGroup(group)"
+    >
+      <img
+        [src]="group.profilePhoto ? group.profilePhoto : 'assets/img/OIP.jpg'"
+        alt="Profile Photo"
+      />
+      <p>{{ group.name }}</p>
+      <p>
+        <i class="fa-regular fa-calendar-days"></i> {{ group.departureDate }}
+      </p>
+      <p><i class="fa-solid fa-location-dot"></i> {{ group.destination }}</p>
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="selectedGroup">
+  <nav>
+    <button (click)="deselectGroup()">Retour</button>
+    <ul>
+      <li><a (click)="showSection('home')">Accueil</a></li>
+      <li><a (click)="showSection('budget')">Budget</a></li>
+      <li><a (click)="showSection('chat')">Chat</a></li>
+      <li><a (click)="showSection('stories')">Stories</a></li>
+      <li><a (click)="showSection('tickets')">Tickets</a></li>
+    </ul>
+    <div class="logo">
+      <img
+        *ngIf="selectedGroup.profilePhoto"
+        [src]="selectedGroup.profilePhoto"
+        alt="Profile Photo"
+      />
+    </div>
+  </nav>
+
+  <div class="detail-group" *ngIf="currentSection === 'home'">
+    <div class="step-container">
+      <div class="step">
+        <img src="../../../assets/img/planning.png" alt="Destination Image" />
+        <div class="description">
+          <h4>Destination</h4>
+          <p>
+            Découvrez les merveilles de notre destination exotique, où chaque
+            coin de rue réserve une aventure unique.
+          </p>
+        </div>
+      </div>
+      <div class="step">
+        <img src="../../../assets/img/planning.png" alt="Document Image" />
+        <div class="description">
+          <h4>Document</h4>
+          <p>
+            Préparez vos documents essentiels pour un voyage sans tracas et des
+            souvenirs inoubliables.
+          </p>
+        </div>
+      </div>
+      <div class="step">
+        <img src="../../../assets/img/planning.png" alt="Planning Image" />
+        <div class="description">
+          <h4>Planning</h4>
+          <p>
+            Suivez notre planning détaillé pour maximiser chaque moment de votre
+            voyage extraordinaire.
+          </p>
+        </div>
+      </div>
+      <div class="step">
+        <img src="../../../assets/img/planning.png" alt="Vaccination Image" />
+        <div class="description">
+          <h4>Vaccination</h4>
+          <p>
+            Assurez-vous d'être en parfaite santé pour explorer le monde grâce à
+            nos recommandations de vaccination.
+          </p>
+        </div>
+      </div>
+      <div class="step">
+        <img src="../../../assets/img/planning.png" alt="Ticket Image" />
+        <div class="description">
+          <h4>Ticket</h4>
+          <p>
+            Vos tickets sont la clé d'une expérience inoubliable, ouvrant les
+            portes à des aventures sans fin.
+          </p>
+        </div>
+      </div>
+      <div class="step">
+        <img src="../../../assets/img/planning.png" alt="Assurance Image" />
+        <div class="description">
+          <h4>Assurance</h4>
+          <p>
+            Voyagez l'esprit tranquille avec notre assurance complète, votre
+            meilleur compagnon de voyage.
+          </p>
+        </div>
+      </div>
+      <div class="step">
+        <img src="../../../assets/img/planning.png" alt="Bagage Image" />
+        <div class="description">
+          <h4>Bagage</h4>
+          <p>
+            Préparez vos bagages avec soin pour emporter un peu de chez soi tout
+            en découvrant l'inconnu.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <button (click)="toggleUpdateGroupForm()">
+      <i class="fa-solid fa-gear"></i>
+      Parametres
+    </button>
+
+    <div class="maj-group" *ngIf="showUpdateGroupForm">
+      <h1><i class="fa-solid fa-gear"></i> Paremetres</h1>
+      <p><strong>Membres:</strong></p>
+      <ul class="members">
+        <li *ngFor="let member of selectedGroup.members; let i = index">
+          {{ member }} <button (click)="removeMember(i)">Bloquer</button>
+        </li>
+      </ul>
+
+      <div class="add-user-form">
+        <h2>Ajouter un membre au groupe</h2>
+        <input
+          type="email"
+          [(ngModel)]="userEmail"
+          placeholder="Email de l'utilisateur"
+        />
+        <button (click)="addUserToGroup()">Ajouter</button>
+      </div>
+
+      <input type="file" (change)="handleProfilePhotoChange($event)" />
+
+      <input
+        type="text"
+        [(ngModel)]="selectedGroup.name"
+        name="groupName"
+        placeholder="Nom du Groupe"
+        required
+      />
+      <input
+        type="text"
+        [(ngModel)]="selectedGroup.destination"
+        name="destination"
+        placeholder="Destination"
+        required
+      />
+      <p><strong>Départ:</strong></p>
+      <input
+        type="date"
+        [(ngModel)]="selectedGroup.departureDate"
+        name="departureDate"
+        placeholder="Date de Départ"
+      />
+      <p><strong>Arrivée:</strong></p>
+      <input
+        type="date"
+        [(ngModel)]="selectedGroup.arrivalDate"
+        name="arrivalDate"
+        placeholder="Date d'Arrivée"
+      />
+      <p><strong>Budget:</strong></p>
+      <input
+        type="number"
+        [(ngModel)]="selectedGroup.budget"
+        name="budget"
+        placeholder="Budget"
+      />
+      <div *ngFor="let activity of selectedGroup.activities; let i = index">
+        <h3>Activité {{ i + 1 }}</h3>
+        <input
+          type="text"
+          [(ngModel)]="activity.name"
+          name="activityName{{ i }}"
+          placeholder="Nom"
+        />
+        <input
+          type="text"
+          [(ngModel)]="activity.photo"
+          name="activityPhoto{{ i }}"
+          placeholder="Photo"
+        />
+        <input
+          type="text"
+          [(ngModel)]="activity.address"
+          name="activityAddress{{ i }}"
+          placeholder="Adresse"
+        />
+        <input
+          type="number"
+          [(ngModel)]="activity.price"
+          name="activityPrice{{ i }}"
+          placeholder="Prix"
+        />
+      </div>
+      <div>
+        <h3>Documents</h3>
+        <input
+          type="file"
+          multiple
+          (change)="handleFileChange($event, 'documents')"
+        />
+      </div>
+      <div>
+        <h3>Tickets</h3>
+        <input
+          type="file"
+          multiple
+          (change)="handleFileChange($event, 'tickets')"
+        />
+      </div>
+      <div>
+        <h3>Vaccination</h3>
+        <input
+          type="file"
+          multiple
+          (change)="handleFileChange($event, 'vaccination')"
+        />
+      </div>
+      <div>
+        <h3>Assurance</h3>
+        <input
+          type="file"
+          multiple
+          (change)="handleFileChange($event, 'assurance')"
+        />
+      </div>
+
+      <!-- Bouton de soumission sans form -->
+      <button class="maj-btn" (click)="updateGroup()">Mettre à jour</button>
+    </div>
+  </div>
+
+  <app-budget
+    *ngIf="currentSection === 'budget'"
+    [selectedGroup]="selectedGroup"
+  ></app-budget>
+  <app-chat
+    *ngIf="currentSection === 'chat'"
+    [selectedGroup]="selectedGroup"
+  ></app-chat>
+  <app-stories
+    *ngIf="currentSection === 'stories'"
+    [selectedGroup]="selectedGroup"
+  ></app-stories>
+  <app-tickets
+    *ngIf="currentSection === 'tickets'"
+    [selectedGroup]="selectedGroup"
+  ></app-tickets>
+</div>
