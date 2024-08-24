@@ -130,18 +130,34 @@
   color: #fff;
 }
 
-.timelinecontainer h1 {
+.timelinecontainer h1,
+.groupe h1,
+.map h1 {
   font-size: 50px;
   text-align: center;
   margin-bottom: 50px;
 }
 
-.map {
+.map h1 {
+  color: #fff;
+}
+
+.groupe {
   color: #fff;
 }
 
 .map h1 {
-  font-size: 50px;
-  text-align: center;
   margin: 50px 0;
+}
+
+.groupeList {
+  margin: 50px;
+  display: flex;
+  justify-content: space-between; /* Pour disperser les éléments */
+  align-items: center; /* Pour centrer les éléments verticalement */
+  padding: 10px; /* Pour ajouter un peu d'espace intérieur */
+}
+
+ul li a {
+  cursor: pointer;
 }

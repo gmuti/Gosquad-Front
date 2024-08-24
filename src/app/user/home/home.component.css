@@ -1,0 +1,154 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.title {
+  text-align: center;
+}
+
+.home-container {
+  display: flex;
+  height: 98vh;
+  padding: 10px;
+  box-sizing: border-box;
+  gap: 10px;
+}
+
+.checklist {
+  flex: 0 0 25%;
+  background-color: #ffdbb57a;
+  border: 1px solid #f9cb9b;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+}
+
+.checklist button {
+  padding: 9px 15px;
+  background-color: #603f26;
+  color: #ffdbb5;
+  border-radius: 7px;
+  border: none;
+}
+
+.add-btns {
+  display: flex;
+  justify-content: space-around;
+}
+
+.checklist option {
+  color: #603f26;
+}
+
+.right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  gap: 10px;
+}
+
+.activity .bas {
+  /* border: 1px solid red; */
+  overflow: hidden;
+  max-width: 600px;
+}
+.bas h3,
+.bas p {
+  max-width: 100%; /* Empêche les éléments de déborder horizontalement */
+  word-wrap: break-word; /* Casse les mots longs pour éviter le débordement */
+}
+
+.haut {
+  display: flex;
+  flex: 3;
+  gap: 10px;
+  overflow-y: auto;
+}
+
+.groups {
+  flex: 1; /* Take less space */
+}
+
+.destination img {
+  width: 35%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 10px;
+}
+
+.destination {
+  display: flex;
+}
+.destination .right {
+  flex: 1;
+  justify-content: center;
+}
+
+.destinations,
+.activities,
+.groups {
+  background-color: #ffdbb57a;
+  border: 1px solid #f9cb9b;
+  padding: 20px;
+  overflow-y: auto;
+  scrollbar-width: none;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+}
+
+.destinations,
+.activities {
+  flex: 1;
+}
+
+.groups {
+  flex: 1;
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.checklist ul {
+  list-style: none;
+  padding: 0;
+}
+
+.checklist li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.checklist input[type="text"] {
+  width: calc(100% - 110px);
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.destination,
+.activity,
+.group {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.destination:last-child,
+.activity:last-child,
+.group:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.activity img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}

@@ -1,0 +1,10 @@
+.social-icons {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 100px;
+}
+
+.social-icons a {
+  color: #000;
+  font-size: 30px;
+}

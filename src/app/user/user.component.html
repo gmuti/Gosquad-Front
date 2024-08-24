@@ -1,6 +1,68 @@
-<!-- src/app/user/user.component.html -->
-<div>
-  <h1>Welcome, User!</h1>
-  <p>This is the user dashboard.</p>
-  <button (click)="logout()">Logout</button>
+<div class="user-dashboard" [ngClass]="{ collapsed: isCollapsed }">
+  <app-sidebar></app-sidebar>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
 </div>
+
+<!-- <div class="header">
+    <div class="logo">
+      <img src="assets/img/gosquad-logo.png" alt="GoSquad Logo" />
+    </div>
+    <nav class="nav-bar">
+      <a routerLink="/home" class="active-link">Accueil</a>
+      <a routerLink="/travel-plan">Plan de voyage</a>
+      <a routerLink="/budget">Budget</a>
+      <a routerLink="/groups">Groupes</a>
+      <button (click)="toggleUserMenu()">
+        <i class="fas fa-user"></i>
+        {{ user?.displayName?.split(" ")[0] }}
+        {{ getInitials(user?.displayName) }}
+      </button>
+    </nav>
+  </div>
+
+  <div class="user-menu" *ngIf="isUserMenuVisible">
+    <p>{{ user?.displayName }}</p>
+    <button (click)="logout()">Déconnexion</button>
+  </div>
+
+  <h1>Mes groupes de voyage</h1>
+  <div class="groups">
+    <div class="group-card" *ngFor="let group of userGroups">
+      <img [src]="group.image" alt="Group Image" />
+      <div class="group-info">
+        <h3>{{ group.title }}</h3>
+        <p><i class="fa fa-calendar-check-o"></i> {{ group.date }}</p>
+        <p class="location">
+          <i class="fa fa-map-marker"></i>
+          {{ group.location }}
+        </p>
+      </div>
+      <div class="group-members">{{ group.membersCount }}</div>
+    </div>
+    <div class="create-group">
+      <i class="fas fa-plus-square"></i>
+      <h1>Créer un nouveau groupe</h1>
+    </div>
+  </div>
+
+  <h1>Propositions qui pourrons vous interessez</h1>
+  <div class="propositions">
+    <div class="proposition-card" *ngFor="let proposition of propositions">
+      <img [src]="proposition.image" alt="Proposition Image" />
+      <div class="proposition-info">
+        <h3>{{ proposition.title }}</h3>
+        <p>{{ proposition.description }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="search">
+    <input type="text" placeholder="Recherche..." />
+    <button>🔍</button>
+    <button>Filtres</button>
+  </div>
+  <div class="footer">
+    <app-footer></app-footer>
+  </div> -->

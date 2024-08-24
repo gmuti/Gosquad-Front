@@ -5,7 +5,7 @@
       ><img src="assets/img/gosquad-logo.png" alt="Illustration"
     /></a>
     <ul>
-      <li><a href="">Centre d'aide</a></li>
+      <li><a (click)="navigateToAide()">Centre d'aide</a></li>
       <li><button (click)="navigateToAuth()">Se connecter</button></li>
     </ul>
   </nav>
@@ -39,5 +39,16 @@
   <div class="map">
     <h1>Votre plan de voyage</h1>
     <app-map></app-map>
+  </div>
+  <div class="groupe">
+    <h1>Rejoignez un groupe</h1>
+    <div class="groupeList">
+      <img src="assets/img/groupe1.png" alt="" />
+      <img src="assets/img/groupe2.png" alt="" />
+      <img src="assets/img/groupe3.png" alt="" />
+    </div>
+  </div>
+  <div class="footer">
+    <app-footer></app-footer>
   </div>
 </div>

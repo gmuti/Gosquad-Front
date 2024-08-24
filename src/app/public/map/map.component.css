@@ -18,8 +18,27 @@
   border-radius: 8px; /* Bordure arrondie */
   padding: 10px; /* Espacement intérieur */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre douce */
+  color: #000;
 }
 
 .tt {
-  color: black;
+  color: red;
+}
+
+.custom-popup h1 {
+  color: black; /* Couleur noire pour le texte du h1 */
+  margin: 0; /* Pour enlever les marges par défaut */
+}
+
+.custom-popup .maptiler-popup-content {
+  background-color: #7b228d; /* Couleur de fond de votre choix */
+  border-radius: 8px; /* Bordure arrondie */
+  padding: 10px; /* Espacement intérieur */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre douce */
+  color: black; /* Couleur du texte */
+}
+
+.custom-popup .maptiler-popup-content h1 {
+  color: black; /* Couleur noire pour le texte du h1 */
+  margin: 0; /* Pour enlever les marges par défaut */
 }
