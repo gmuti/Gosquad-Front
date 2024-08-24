@@ -1,0 +1,16 @@
+{
+  "routes": [
+    "/aide",
+    "/forgot-password",
+    "/login",
+    "/public",
+    "/register",
+    "/user",
+    "/user/budget",
+    "/user/groups",
+    "/user/home",
+    "/user/plan",
+    "/user/search",
+    "/user/tickets"
+  ]
+}
